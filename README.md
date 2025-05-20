@@ -1,12 +1,12 @@
 # ♻️ SmartBin
 
-SmartBin is an AI-powered mobile app designed to help users classify waste and encourage recycling through a simple reward system. Built for the Hack4Nature 2025 hackathon (Waste & Pollution Track), it promotes responsible disposal habits and environmental awareness.
+SmartBin is an AI-powered mobile app designed to help users classify general household waste and encourage recycling through a simple reward system. Built for the Hack4Nature 2025 hackathon (Waste & Pollution Track), it promotes responsible disposal habits and environmental awareness.
 
 ---
 
 ## 🔍 Features
 - 📸 Upload or scan waste
-- 🧠 AI-based classification (e.g., dry, wet, recyclable)
+- 🧠 AI-based classification (e.g., dry, wet, recyclable, Hazardous)
 - 🎁 Green Points awarded for proper disposal
 - 📊 Track impact: plastic saved, trees protected
 - 📜 View history of recycled items
