@@ -33,7 +33,8 @@ A visual representation of SmartBin's logic and backend:
 ## 🛠️ Built For
 Hack4Nature 2025 – IITM BS  
 Track: Waste & Pollution  
-Team: Aishwarya Gond
+Team: Sudo_Solo
+Member: Aishwarya Gond
 
 ---
 
