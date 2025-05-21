@@ -26,7 +26,7 @@ A visual representation of SmartBin's logic and backend:
 ---
 
 ## 🎬 Demo Video
-📽️ [Demo Video Link](<insert-your-YouTube-or-Drive-link-here>)
+📽️ [Demo Video Link](https://drive.google.com/file/d/1GlGYoHZSMyMNkblhPBdHzJuwJIiMgdz_/view?usp=drive_link)
 
 ---
 
