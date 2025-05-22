@@ -30,7 +30,8 @@ A visual representation of SmartBin's logic and backend:
 
 ---
 
-## ▶️ WebApp Prototype Link - (https://aishwarya1659.github.io/SmartBin/)
+## ▶️ WebApp Prototype Link
+(https://aishwarya1659.github.io/SmartBin/)
 
 ## 🛠️ Built For
 Hack4Nature 2025 – IITM BS  
