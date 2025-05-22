@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartBin Prototype</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f6fdf6;
+      color: #cb5d5d;
+      text-align: center;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 500px;
+      margin: auto;
+      padding: 2rem;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      background-color: #fff;
+    }
+    h1 {
+      color: #2e7d32;
+    }
+    input[type="file"] {
+      margin-top: 1rem;
+    }
+    .output {
+      margin-top: 2rem;
+      padding: 1rem;
+      border: 1px dashed #2e7d32;
+      border-radius: 10px;
+      display: none;
+    }
+    .reward {
+      font-weight: bold;
+      color: #388e3c;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>SmartBin</h1>
+    <p>Upload a photo of your waste item</p>
+    <input type="file" accept="image/*" id="wasteInput" />
+
+    <div class="output" id="resultBox">
+      <p><strong>Classification:</strong> <span id="classification"></span></p>
+      <p class="reward">+10 Green Points</p>
+      <p><em>You have saved 0.3 kg of waste from landfill!</em></p>
+    </div>
+  </div>
+
+  <script>
+    const wasteInput = document.getElementById("wasteInput");
+    const resultBox = document.getElementById("resultBox");
+    const classification = document.getElementById("classification");
+
+    const categories = ["Wet Waste", "Dry Waste", "Hazardous Waste", "Recyclable Waste"];
+
+    wasteInput.addEventListener("change", () => {
+      const randomIndex = Math.floor(Math.random() * categories.length);
+      const result = categories[randomIndex];
+      classification.textContent = result;
+      resultBox.style.display = "block";
+    });
+  </script>
+</body>
+</html>
