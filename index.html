@@ -8,7 +8,7 @@
     body {
       font-family: Arial, sans-serif;
       background-color: #f6fdf6;
-      color: #cb5d5d;
+      color: #333;
       text-align: center;
       padding: 2rem;
     }
@@ -23,15 +23,18 @@
     h1 {
       color: #2e7d32;
     }
-    input[type="file"] {
-      margin-top: 1rem;
-    }
-    .output {
-      margin-top: 2rem;
-      padding: 1rem;
-      border: 1px dashed #2e7d32;
-      border-radius: 10px;
+    .hidden {
       display: none;
+    }
+    .button {
+      margin-top: 1rem;
+      padding: 0.5rem 1.5rem;
+      font-size: 1rem;
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
     }
     .reward {
       font-weight: bold;
@@ -41,29 +44,65 @@
 </head>
 <body>
   <div class="container">
-    <h1>SmartBin</h1>
-    <p>Upload a photo of your waste item</p>
-    <input type="file" accept="image/*" id="wasteInput" />
+    <div id="screen1">
+      <h1>SmartBin</h1>
+      <button class="button" onclick="goToScreen(2)">Scan Waste</button>
+    </div>
 
-    <div class="output" id="resultBox">
+    <div id="screen2" class="hidden">
+      <h2>Upload Image</h2>
+      <p>Take a photo or upload from gallery</p>
+      <input type="file" accept="image/*" id="wasteInput" />
+      <br />
+      <button class="button" onclick="goToScreen(3)">Submit</button>
+    </div>
+
+    <div id="screen3" class="hidden">
+      <h2>Scan Complete</h2>
+      <p>Your item was successfully scanned.</p>
       <p><strong>Classification:</strong> <span id="classification"></span></p>
+      <button class="button" onclick="goToScreen(4)">View Rewards</button>
+    </div>
+
+    <div id="screen4" class="hidden">
+      <h2>Reward Earned</h2>
       <p class="reward">+10 Green Points</p>
-      <p><em>You have saved 0.3 kg of waste from landfill!</em></p>
+      <button class="button" onclick="goToScreen(5)">See Impact</button>
+    </div>
+
+    <div id="screen5" class="hidden">
+      <h2>Impact Summary</h2>
+      <p>You've saved 3 kg of waste from landfills!</p>
+      <p>2 trees saved through sustainable disposal 🌱</p>
     </div>
   </div>
 
   <script>
-    const wasteInput = document.getElementById("wasteInput");
-    const resultBox = document.getElementById("resultBox");
     const classification = document.getElementById("classification");
 
-    const categories = ["Wet Waste", "Dry Waste", "Hazardous Waste", "Recyclable Waste"];
+    function goToScreen(screenNumber) {
+      for (let i = 1; i <= 5; i++) {
+        document.getElementById(`screen${i}`).classList.add("hidden");
+      }
+      document.getElementById(`screen${screenNumber}`).classList.remove("hidden");
+    }
 
-    wasteInput.addEventListener("change", () => {
-      const randomIndex = Math.floor(Math.random() * categories.length);
-      const result = categories[randomIndex];
+    document.getElementById("wasteInput").addEventListener("change", (event) => {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const fileName = file.name.toLowerCase();
+      let result = "Recyclable Waste"; // Default
+
+      if (fileName.includes("leaf") || fileName.includes("food") || fileName.includes("banana")) {
+        result = "Wet Waste";
+      } else if (fileName.includes("plastic") || fileName.includes("paper") || fileName.includes("bottle")) {
+        result = "Dry Waste";
+      } else if (fileName.includes("battery") || fileName.includes("chemical")) {
+        result = "Hazardous Waste";
+      }
+
       classification.textContent = result;
-      resultBox.style.display = "block";
     });
   </script>
 </body>
